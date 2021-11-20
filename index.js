@@ -10,6 +10,9 @@ app.get("/", (req, res) => {
     res.send("hello werd");
 });
 const articles=[]
+const articles1=[
+    {  name:"com"}
+  ]
 app.get("/news",async (req, res) => {
 
 
@@ -18,9 +21,9 @@ app.get("/news",async (req, res) => {
             const html = response.data;
            console.log(html);
            
-            const $ = cheerio.load(html)
-    
-            $('a:contains("com")', html).each(function () {
+            const $ = cheerio.load(html);
+    let x="g";
+            $(`a:contains(${x})`, html).each(function () {
                 const title =  $(this).text()
                const url = $(this).attr('href')
               
